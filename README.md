@@ -1,5 +1,6 @@
 # Healthy Hints: A Vision Agent with Google ADK
 [![tests](https://github.com/BinduRajyaLakshmiTekumudi/adk-vision-ocr-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/BinduRajyaLakshmiTekumudi/adk-vision-ocr-agent/actions/workflows/tests.yml)
+
 An AI agent that reads a photo of a packaged-food label and explains the ingredients. It uses **Gemini** to plan and reason, **Cloud Storage** to archive the image, and the **Cloud Vision API** to read the label text (OCR). Built with Google's **Agent Development Kit (ADK)**.
 
 > Built as part of a graduate computer vision course (CS663, "Vision Agentic Computing"), starting from Google's [ADK multi-tool codelab](https://codelabs.developers.google.com/multi-tools-ai-agent-adk) and fixing a design flaw in its tool pipeline.

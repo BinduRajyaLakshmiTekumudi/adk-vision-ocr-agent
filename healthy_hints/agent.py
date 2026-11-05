@@ -11,6 +11,45 @@ BUCKET_NAME = os.environ["HEALTHY_HINTS_BUCKET"]
 UPLOAD_DIR = Path(os.getenv("HEALTHY_HINTS_UPLOAD_DIR", "./images"))
 UPLOAD_DIR = UPLOAD_DIR.resolve()
 ALLOWED_SUFFIXES = {".jpg", ".jpeg", ".png", ".webp"}
+MAX_IMAGE_BYTES = 8 * 1024 * 1024
+CONTENT_TYPES = {
+    ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
+    ".png": "image/png", ".webp": "image/webp",
+}
+
+
+def sniff_image_type(data: bytes) -> str | None:
+    """Return the real file type from the first bytes ('.jpeg', '.png', '.webp'), or None.
+
+    Checks the file's actual contents (its "magic bytes"), not its name, so a
+    renamed text file or script is rejected.
+    """
+    if data.startswith(b"\xff\xd8\xff"):
+        return ".jpeg"
+    if data.startswith(b"\x89PNG\r\n\x1a\n"):
+        return ".png"
+    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        return ".webp"
+    return None
+
+
+def store_uploaded_image(data: bytes) -> str:
+    """Validate image bytes received over HTTP, upload them, and return the gs:// URI.
+
+    Used by the web API, not registered as an agent tool.
+    """
+    if not data:
+        raise ValueError("The uploaded file is empty")
+    if len(data) > MAX_IMAGE_BYTES:
+        raise ValueError("Image exceeds the 8 MiB limit")
+    suffix = sniff_image_type(data)
+    if suffix is None:
+        raise ValueError("File content is not a JPG, PNG, or WebP image")
+
+    object_name = f"uploads/{uuid.uuid4().hex}{suffix}"
+    blob = storage.Client().bucket(BUCKET_NAME).blob(object_name)
+    blob.upload_from_string(data, content_type=CONTENT_TYPES[suffix])
+    return f"gs://{BUCKET_NAME}/{object_name}"
 
 
 def upload_image(image_path: str) -> str:
@@ -29,13 +68,10 @@ def upload_image(image_path: str) -> str:
         raise FileNotFoundError(f"Image not found: {candidate.name}")
     if candidate.suffix.lower() not in ALLOWED_SUFFIXES:
         raise ValueError("Only JPG, PNG, or WebP images are allowed")
-    if candidate.stat().st_size > 8 * 1024 * 1024:
+    if candidate.stat().st_size > MAX_IMAGE_BYTES:
         raise ValueError("Image exceeds the 8 MiB classroom limit")
 
-    content_type = {
-        ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
-        ".png": "image/png", ".webp": "image/webp",
-    }[candidate.suffix.lower()]
+    content_type = CONTENT_TYPES[candidate.suffix.lower()]
     object_name = f"uploads/{uuid.uuid4().hex}{candidate.suffix.lower()}"
     bucket = storage.Client().bucket(BUCKET_NAME)
     blob = bucket.blob(object_name)
@@ -72,6 +108,9 @@ root_agent = Agent(
         "When the user supplies a local image filename, first call "
         "upload_image(image_path) and capture its returned gs:// URI. "
         "Then call read_ingredients(gcs_uri) with EXACTLY that URI. "
+        "If the user instead gives a gs:// URI of an image that is already "
+        "uploaded, skip upload_image and call read_ingredients with exactly "
+        "that URI. "
         "Use the returned OCR text to explain the ingredients, "
         "not a remembered or invented ingredient list. "
         "If OCR is incomplete, say so. Avoid categorical claims that "

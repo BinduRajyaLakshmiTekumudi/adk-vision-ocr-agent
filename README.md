@@ -161,6 +161,29 @@ adk run healthy_hints
 # Or use the web UI with tool traces
 adk web --allow_origins="*"
 ```
+## Evaluation
+
+A fixed set of 10 labels with known answers, scored automatically by `evals/run_eval.py`: 8 synthetic labels that each test one difficulty (clean, small font, rotated, low contrast, blurred, no ingredient list, blank image) plus 2 real photos.
+
+Each case checks that the agent calls `upload_image` then `read_ingredients`, passes the exact uploaded URI to OCR, mentions the real ingredients (recall), never names ingredients that are not on the label, reports when there is no ingredient list, and includes a disclaimer.
+
+**Results so far** (`gemini-3.5-flash`): 5 of 10 cases completed, **5/5 passed**. The other 5 hit the Gemini API quota and are pending.
+
+| Case | Condition | Result | Recall | Latency |
+|---|---|---|---|---|
+| granola_bar | clean | PASS | 1.00 | 9.0 s |
+| tomato_sauce | clean | PASS | 1.00 | 13.0 s |
+| crackers_small_font | small font | PASS | 1.00 | 44.2 s |
+| sports_drink_rotated | rotated 6° | PASS | 1.00 | 37.6 s |
+| yogurt_low_contrast | low contrast | PASS | 1.00 | 19.5 s |
+
+All 5 used the correct tool order, linked the URI correctly, and mentioned no unlisted ingredients. Full report: [evals/results/latest.md](evals/results/latest.md).
+
+```bash
+python evals/make_synthetic_labels.py
+python evals/run_eval.py --delay 10
+python evals/run_eval.py --only <case ids> --merge   # finish pending cases later
+```
 ## Testing
 
 Unit tests mock Cloud Storage and Cloud Vision, so they run offline with no credentials:

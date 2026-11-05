@@ -19,9 +19,9 @@ The agent then:
 ```mermaid
 flowchart LR
     U[User prompt<br/>'Analyze label_a.jpeg'] --> G[Gemini via ADK<br/>plans tool calls]
-    G -->|1. upload_image path| S[(Cloud Storage<br/>uploads/uuid.jpeg)]
+    G -->|1.upload_image path| S[(Cloud Storage<br/>uploads/uuid.jpeg)]
     S -->|returns gs:// URI| G
-    G -->|2. read_ingredients URI| V[Cloud Vision<br/>text detection]
+    G -->|2.read_ingredients URI| V[Cloud Vision<br/>text detection]
     V -->|OCR text| G
     G --> A[Grounded explanation<br/>+ caveats]
 ```

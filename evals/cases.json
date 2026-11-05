@@ -1,0 +1,229 @@
+[
+  {
+    "id": "granola_bar",
+    "image": "synthetic/granola_bar.png",
+    "condition": "clean",
+    "has_ingredient_list": true,
+    "expected_ingredients": [
+      "rolled oats",
+      "honey",
+      "almonds",
+      "brown rice syrup",
+      "sunflower oil",
+      "sea salt"
+    ],
+    "unlisted_traps": [
+      "peanut",
+      "chocolate",
+      "corn syrup",
+      "soy lecithin"
+    ],
+    "synthetic": {
+      "title": "CRUNCHY OAT & HONEY BAR",
+      "ingredients": "Rolled Oats, Honey, Almonds, Brown Rice Syrup, Sunflower Oil, Sea Salt.",
+      "contains": "Contains: Tree Nuts (Almonds)."
+    }
+  },
+  {
+    "id": "tomato_sauce",
+    "image": "synthetic/tomato_sauce.png",
+    "condition": "clean",
+    "has_ingredient_list": true,
+    "expected_ingredients": [
+      "tomato puree",
+      "diced tomatoes",
+      "olive oil",
+      "garlic",
+      "basil",
+      "salt",
+      "citric acid"
+    ],
+    "unlisted_traps": [
+      "cane sugar",
+      "cheese",
+      "onion powder",
+      "high fructose corn syrup"
+    ],
+    "synthetic": {
+      "title": "MARINARA PASTA SAUCE",
+      "ingredients": "Tomato Puree (Water, Tomato Paste), Diced Tomatoes, Olive Oil, Garlic, Basil, Salt, Citric Acid.",
+      "contains": ""
+    }
+  },
+  {
+    "id": "crackers_small_font",
+    "image": "synthetic/crackers_small_font.png",
+    "condition": "small font",
+    "has_ingredient_list": true,
+    "expected_ingredients": [
+      "whole wheat flour",
+      "canola oil",
+      "sugar",
+      "salt",
+      "baking soda",
+      "malt syrup"
+    ],
+    "unlisted_traps": [
+      "cheese",
+      "butter",
+      "eggs",
+      "yeast"
+    ],
+    "synthetic": {
+      "title": "WHOLE WHEAT CRACKERS",
+      "ingredients": "Whole Wheat Flour, Canola Oil, Sugar, Salt, Baking Soda, Malt Syrup.",
+      "contains": "Contains: Wheat.",
+      "font_size": 13
+    }
+  },
+  {
+    "id": "sports_drink_rotated",
+    "image": "synthetic/sports_drink_rotated.png",
+    "condition": "rotated 6 degrees",
+    "has_ingredient_list": true,
+    "expected_ingredients": [
+      "water",
+      "sugar",
+      "citric acid",
+      "sodium citrate",
+      "monopotassium phosphate",
+      "natural flavor"
+    ],
+    "unlisted_traps": [
+      "caffeine",
+      "aspartame",
+      "taurine",
+      "sucralose"
+    ],
+    "synthetic": {
+      "title": "LEMON-LIME SPORTS DRINK",
+      "ingredients": "Water, Sugar, Citric Acid, Sodium Citrate, Monopotassium Phosphate, Natural Flavor.",
+      "contains": "",
+      "rotate": 6
+    }
+  },
+  {
+    "id": "yogurt_low_contrast",
+    "image": "synthetic/yogurt_low_contrast.png",
+    "condition": "low contrast",
+    "has_ingredient_list": true,
+    "expected_ingredients": [
+      "cultured milk",
+      "strawberries",
+      "cane sugar",
+      "pectin",
+      "live active cultures"
+    ],
+    "unlisted_traps": [
+      "gelatin",
+      "corn starch",
+      "carrageenan",
+      "sucralose"
+    ],
+    "synthetic": {
+      "title": "STRAWBERRY YOGURT",
+      "ingredients": "Cultured Milk, Strawberries, Cane Sugar, Pectin, Live Active Cultures.",
+      "contains": "Contains: Milk.",
+      "low_contrast": true
+    }
+  },
+  {
+    "id": "spread_blurred",
+    "image": "synthetic/spread_blurred.png",
+    "condition": "blurred",
+    "has_ingredient_list": true,
+    "expected_ingredients": [
+      "hazelnuts",
+      "cocoa",
+      "coconut sugar",
+      "sunflower oil",
+      "vanilla"
+    ],
+    "unlisted_traps": [
+      "palm oil",
+      "skim milk",
+      "soy lecithin",
+      "whey"
+    ],
+    "synthetic": {
+      "title": "HAZELNUT COCOA SPREAD",
+      "ingredients": "Hazelnuts, Cocoa, Coconut Sugar, Sunflower Oil, Vanilla.",
+      "contains": "Contains: Tree Nuts (Hazelnuts).",
+      "blur": 1.2
+    }
+  },
+  {
+    "id": "nutrition_only",
+    "image": "synthetic/nutrition_only.png",
+    "condition": "no ingredient list",
+    "has_ingredient_list": false,
+    "expected_ingredients": [],
+    "unlisted_traps": [
+      "flour",
+      "corn",
+      "wheat",
+      "palm oil",
+      "soy",
+      "milk"
+    ],
+    "synthetic": {
+      "title": "NUTRITION FACTS",
+      "ingredients": "",
+      "contains": "",
+      "nutrition_only": true
+    }
+  },
+  {
+    "id": "blank_image",
+    "image": "synthetic/blank_image.png",
+    "condition": "no text",
+    "has_ingredient_list": false,
+    "expected_ingredients": [],
+    "unlisted_traps": [
+      "flour",
+      "corn",
+      "wheat",
+      "palm oil"
+    ],
+    "synthetic": {
+      "blank": true
+    }
+  },
+  {
+    "id": "real_label_a_cereal",
+    "image": "real/label_a.jpeg",
+    "condition": "real photo",
+    "has_ingredient_list": true,
+    "expected_ingredients": [
+      "milk protein blend",
+      "allulose",
+      "monk fruit",
+      "sunflower oil",
+      "avocado oil",
+      "tapioca starch",
+      "inulin",
+      "cinnamon",
+      "salt"
+    ],
+    "unlisted_traps": [
+      "corn syrup",
+      "wheat flour",
+      "soy lecithin",
+      "palm oil"
+    ]
+  },
+  {
+    "id": "real_label_b_chips",
+    "image": "real/label_b.jpeg",
+    "condition": "real photo, no ingredient list",
+    "has_ingredient_list": false,
+    "expected_ingredients": [],
+    "unlisted_traps": [
+      "potato",
+      "vegetable oil",
+      "rice flour",
+      "wheat starch",
+      "corn"
+    ]
+  }
+]

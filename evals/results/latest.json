@@ -1,0 +1,387 @@
+{
+  "model": "gemini-3.5-flash",
+  "when": "2026-11-05 21:27",
+  "summary": {
+    "cases": 10,
+    "completed": 5,
+    "errored": 5,
+    "passed": 5,
+    "tool_flow_ok": 5,
+    "uri_linked": 5,
+    "mean_recall": 1.0,
+    "cases_with_unlisted_mentions": 0,
+    "handled_missing_list": "0/0",
+    "disclaimer": 5,
+    "mean_latency_s": 24.7
+  },
+  "scores": [
+    {
+      "id": "granola_bar",
+      "condition": "clean",
+      "status": "PASS",
+      "passed": true,
+      "tool_flow_ok": true,
+      "uri_linked": true,
+      "recall": 1.0,
+      "missed": [],
+      "unlisted_mentions": [],
+      "handled_missing_list": null,
+      "disclaimer": true,
+      "latency_s": 9.0,
+      "error": null
+    },
+    {
+      "id": "tomato_sauce",
+      "condition": "clean",
+      "status": "PASS",
+      "passed": true,
+      "tool_flow_ok": true,
+      "uri_linked": true,
+      "recall": 1.0,
+      "missed": [],
+      "unlisted_mentions": [],
+      "handled_missing_list": null,
+      "disclaimer": true,
+      "latency_s": 13.0,
+      "error": null
+    },
+    {
+      "id": "crackers_small_font",
+      "condition": "small font",
+      "status": "PASS",
+      "passed": true,
+      "tool_flow_ok": true,
+      "uri_linked": true,
+      "recall": 1.0,
+      "missed": [],
+      "unlisted_mentions": [],
+      "handled_missing_list": null,
+      "disclaimer": true,
+      "latency_s": 44.2,
+      "error": null
+    },
+    {
+      "id": "sports_drink_rotated",
+      "condition": "rotated 6 degrees",
+      "status": "PASS",
+      "passed": true,
+      "tool_flow_ok": true,
+      "uri_linked": true,
+      "recall": 1.0,
+      "missed": [],
+      "unlisted_mentions": [],
+      "handled_missing_list": null,
+      "disclaimer": true,
+      "latency_s": 37.6,
+      "error": null
+    },
+    {
+      "id": "yogurt_low_contrast",
+      "condition": "low contrast",
+      "status": "PASS",
+      "passed": true,
+      "tool_flow_ok": true,
+      "uri_linked": true,
+      "recall": 1.0,
+      "missed": [],
+      "unlisted_mentions": [],
+      "handled_missing_list": null,
+      "disclaimer": true,
+      "latency_s": 19.5,
+      "error": null
+    },
+    {
+      "id": "spread_blurred",
+      "condition": "blurred",
+      "status": "ERROR",
+      "passed": false,
+      "tool_flow_ok": false,
+      "uri_linked": false,
+      "recall": 0.0,
+      "missed": [
+        "hazelnuts",
+        "cocoa",
+        "coconut sugar",
+        "sunflower oil",
+        "vanilla"
+      ],
+      "unlisted_mentions": [],
+      "handled_missing_list": null,
+      "disclaimer": false,
+      "latency_s": 0.8,
+      "error": "ClientError: 402 RESOURCE_EXHAUSTED. {'error': {'code': 402, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}"
+    },
+    {
+      "id": "nutrition_only",
+      "condition": "no ingredient list",
+      "status": "ERROR",
+      "passed": false,
+      "tool_flow_ok": false,
+      "uri_linked": false,
+      "recall": null,
+      "missed": [],
+      "unlisted_mentions": [],
+      "handled_missing_list": false,
+      "disclaimer": false,
+      "latency_s": 0.0,
+      "error": "Skipped: ClientError: 402 RESOURCE_EXHAUSTED. {'error': {'code': 402, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}"
+    },
+    {
+      "id": "blank_image",
+      "condition": "no text",
+      "status": "ERROR",
+      "passed": false,
+      "tool_flow_ok": false,
+      "uri_linked": false,
+      "recall": null,
+      "missed": [],
+      "unlisted_mentions": [],
+      "handled_missing_list": false,
+      "disclaimer": false,
+      "latency_s": 0.0,
+      "error": "Skipped: ClientError: 402 RESOURCE_EXHAUSTED. {'error': {'code': 402, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}"
+    },
+    {
+      "id": "real_label_a_cereal",
+      "condition": "real photo",
+      "status": "ERROR",
+      "passed": false,
+      "tool_flow_ok": false,
+      "uri_linked": false,
+      "recall": 0.0,
+      "missed": [
+        "milk protein blend",
+        "allulose",
+        "monk fruit",
+        "sunflower oil",
+        "avocado oil",
+        "tapioca starch",
+        "inulin",
+        "cinnamon",
+        "salt"
+      ],
+      "unlisted_mentions": [],
+      "handled_missing_list": null,
+      "disclaimer": false,
+      "latency_s": 0.0,
+      "error": "Skipped: ClientError: 402 RESOURCE_EXHAUSTED. {'error': {'code': 402, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}"
+    },
+    {
+      "id": "real_label_b_chips",
+      "condition": "real photo, no ingredient list",
+      "status": "ERROR",
+      "passed": false,
+      "tool_flow_ok": false,
+      "uri_linked": false,
+      "recall": null,
+      "missed": [],
+      "unlisted_mentions": [],
+      "handled_missing_list": false,
+      "disclaimer": false,
+      "latency_s": 0.0,
+      "error": "Skipped: ClientError: 402 RESOURCE_EXHAUSTED. {'error': {'code': 402, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}"
+    }
+  ],
+  "traces": {
+    "granola_bar": {
+      "calls": [
+        [
+          "upload_image",
+          {
+            "image_path": "synthetic/granola_bar.png"
+          }
+        ],
+        [
+          "read_ingredients",
+          {
+            "gcs_uri": "gs://healthy-hints-btekumudi-1103/uploads/5b7bb577117647deacf14992f24275c4.png"
+          }
+        ]
+      ],
+      "responses": [
+        [
+          "upload_image",
+          {
+            "result": "gs://healthy-hints-btekumudi-1103/uploads/5b7bb577117647deacf14992f24275c4.png"
+          }
+        ],
+        [
+          "read_ingredients",
+          {
+            "result": "CRUNCHY OAT & HONEY BAR\nNutrition Facts\nServing Size 1 Cup (40g)\nCalories 160\nTotal Fat 6g 8%\nSodium 210mg 9%\nTotal Carbohydrate 24g 9%\nDietary Fiber 3g 11%\nTotal Sugars 7g\nProtein 4g\nINGREDIENTS: Rolled Oats, Honey, Almonds, Brown Rice Syrup,\nSunflower Oil, Sea Salt.\nContains: Tree Nuts (Almonds)."
+          }
+        ]
+      ],
+      "answer": "### Recognized Text\n\nThe following text was detected on the label via OCR:\n\n```text\nCRUNCHY OAT & HONEY BAR\nNutrition Facts\nServing Size 1 Cup (40g)\nCalories 160\nTotal Fat 6g 8%\nSodium 210mg 9%\nTotal Carbohydrate 24g 9%\nDietary Fiber 3g 11%\nTotal Sugars 7g\nProtein 4g\nINGREDIENTS: Rolled Oats, Honey, Almonds, Brown Rice Syrup, Sunflower Oil, Sea Salt.\nContains: Tree Nuts (Almonds).\n```\n\n---\n\n### Ingredient Analysis & Breakdown\n\n* **Rolled Oats:** Whole-grain oats primary source of complex carbohydrates and dietary fiber (such as beta-glucan). Oats contribute to the fiber content (3g per serving) and overall texture.\n* **Honey:** A natural liquid sweetener used for binding and flavor. It contributes to the 7g of total sugars per serving.\n* **Almonds:** Tree nuts providing dietary fat, protein, and texture/crunch. Note the allergen advisory on the label (**Contains: Tree Nuts (Almonds)**).\n* **Brown Rice Syrup:** A sweetener made from fermented cooked rice starch that acts as a binder to hold the bar together. Like honey, it contributes to the carbohydrate and sugar content.\n* **Sunflower Oil:** Plant-based oil providing fat content (6g total fat per serving) and texture.\n* **Sea Salt:** Adds flavor and contributes to the sodium level (210 mg per serving).\n\n---\n\n### Context & Considerations\n\n* **Sugars & Sweeteners:** Both honey and brown rice syrup are added sweeteners. While sweetening improves taste and helps bind granola bars, total sugar intake depends on your overall daily dietary context.\n* **Fats & Calories:** Sunflower oil and almonds provide dietary fats. Fat is an essential nutrient that also provides satiety, though individual nutritional needs vary based on overall diet and activity levels.\n* **Allergens:** Contains **Almonds** (Tree Nuts), which is important for individuals with nut allergies to be aware of.\n\n*Note: This information is for educational purposes only and does not constitute medical or personalized dietary advice.*",
+      "error": null,
+      "latency_s": 8.972732893999819
+    },
+    "tomato_sauce": {
+      "calls": [
+        [
+          "upload_image",
+          {
+            "image_path": "synthetic/tomato_sauce.png"
+          }
+        ],
+        [
+          "read_ingredients",
+          {
+            "gcs_uri": "gs://healthy-hints-btekumudi-1103/uploads/30cbc82ab97d42f9b0f1d7d91256cebe.png"
+          }
+        ]
+      ],
+      "responses": [
+        [
+          "upload_image",
+          {
+            "result": "gs://healthy-hints-btekumudi-1103/uploads/30cbc82ab97d42f9b0f1d7d91256cebe.png"
+          }
+        ],
+        [
+          "read_ingredients",
+          {
+            "result": "MARINARA PASTA SAUCE\nNutrition Facts\nServing Size 1 Cup (40g)\nCalories 160\nTotal Fat 6g 8%\nSodium 210mg 9%\nTotal Carbohydrate 24g 9%\nDietary Fiber 3g 11%\nTotal Sugars 7g\nProtein 4g\nINGREDIENTS: Tomato Puree (Water, Tomato Paste), Diced\nTomatoes, Olive Oil, Garlic, Basil, Salt, Citric Acid."
+          }
+        ]
+      ],
+      "answer": "### Recognized Text from OCR\n\n```text\nMARINARA PASTA SAUCE\nNutrition Facts\nServing Size 1 Cup (40g)\nCalories 160\nTotal Fat 6g 8%\nSodium 210mg 9%\nTotal Carbohydrate 24g 9%\nDietary Fiber 3g 11%\nTotal Sugars 7g\nProtein 4g\nINGREDIENTS: Tomato Puree (Water, Tomato Paste), Diced Tomatoes, Olive Oil, Garlic, Basil, Salt, Citric Acid.\n```\n\n---\n\n### Ingredient Overview & Context\n\n* **Tomato Puree (Water, Tomato Paste) & Diced Tomatoes**: These make up the primary base of the sauce, supplying flavor, body, dietary fiber, natural sugars, and micronutrients naturally present in tomatoes (such as lycopene and vitamin C).\n* **Olive Oil**: Used as a cooking oil and flavor carrier. Olive oil adds fat (6g per serving in this product) and is primarily composed of monounsaturated fats.\n* **Garlic & Basil**: Natural herbs/aromatics added to enhance savory flavor and aroma without adding significant sodium or calories.\n* **Salt**: Added for flavor and preservation. The nutrition panel shows 210 mg of sodium per serving (about 9% of the daily value based on a general 2,000-calorie diet), which may be relevant for individuals monitoring overall dietary sodium intake.\n* **Citric Acid**: A standard food-grade acidulant used to maintain acidity levels, preserve color/flavor freshness, and ensure safety in canned tomato products.\n\n*Note: Nutritional needs and sensitivity to ingredients vary by individual. This information is provided for general educational context and should not be taken as personalized medical advice.*",
+      "error": null,
+      "latency_s": 13.0294034869994
+    },
+    "crackers_small_font": {
+      "calls": [
+        [
+          "upload_image",
+          {
+            "image_path": "synthetic/crackers_small_font.png"
+          }
+        ],
+        [
+          "read_ingredients",
+          {
+            "gcs_uri": "gs://healthy-hints-btekumudi-1103/uploads/8244db74fecf468bbc7b4e369f0aeac0.png"
+          }
+        ]
+      ],
+      "responses": [
+        [
+          "upload_image",
+          {
+            "result": "gs://healthy-hints-btekumudi-1103/uploads/8244db74fecf468bbc7b4e369f0aeac0.png"
+          }
+        ],
+        [
+          "read_ingredients",
+          {
+            "result": "WHOLE WHEAT CRACKERS\nNutrition Facts\nServing Size 1 Cup (40g)\nCalories 160\nTotal Fat 6g 8%\nSodium 210mg 9%\nTotal Carbohydrate 24g 9%\nDietary Fiber 3g 11%\nTotal Sugars 7g\nProtein 4g\nINGREDIENTS: Whole Wheat Flour, Canola Oil, Sugar, Salt, Baking Soda, Malt Syrup.\nContains: Wheat."
+          }
+        ]
+      ],
+      "answer": "Here is the recognized text from the ingredient label:\n\n### **Recognized Text**\n```text\nWHOLE WHEAT CRACKERS\nNutrition Facts\nServing Size 1 Cup (40g)\nCalories 160\nTotal Fat 6g 8%\nSodium 210mg 9%\nTotal Carbohydrate 24g 9%\nDietary Fiber 3g 11%\nTotal Sugars 7g\nProtein 4g\nINGREDIENTS: Whole Wheat Flour, Canola Oil, Sugar, Salt, Baking Soda, Malt Syrup.\nContains: Wheat.\n```\n\n---\n\n### **Ingredient Breakdown & Overview**\n\n* **Whole Wheat Flour:** Made from whole wheat kernels, preserving the bran, germ, and endosperm. It naturally contributes dietary fiber, complex carbohydrates, and certain vitamins and minerals.\n* **Canola Oil:** A plant-based cooking oil commonly used to provide moisture and desired texture in baked goods. It consists mainly of unsaturated fats.\n* **Sugar:** Added sweetener that provides carbohydrates and adds sweetness to the crackers.\n* **Salt:** Used for seasoning/flavor enhancement and contributes to the overall sodium content listed on the nutrition label (210mg per serving).\n* **Baking Soda (Sodium Bicarbonate):** A common leavening agent used in baking to help the dough rise and achieve a lighter texture.\n* **Malt Syrup:** A liquid sweetener produced from sprouted grains (often barley). It adds flavor, color, and additional sweetness.\n* **Allergen Information:** Contains **Wheat** (important for individuals with celiac disease, wheat allergies, or gluten sensitivities).\n\n---\n\n### **General Considerations & Context**\n* **Nutritional Balance:** These crackers offer dietary fiber (3g per serving) due to whole wheat flour, along with added sugars (7g total sugars) and moderate sodium (210mg). Depending on your individual dietary preferences, dietary goals, or health conditions (such as managing blood sugar or sodium intake), these factors may be relevant.\n* **Disclaimer:** This analysis is intended solely for educational purposes and does not constitute personalized medical or dietary advice. If you have specific dietary restrictions, allergies, or health concerns, please consult a healthcare professional or registered dietitian.",
+      "error": null,
+      "latency_s": 44.17411882200031
+    },
+    "sports_drink_rotated": {
+      "calls": [
+        [
+          "upload_image",
+          {
+            "image_path": "synthetic/sports_drink_rotated.png"
+          }
+        ],
+        [
+          "read_ingredients",
+          {
+            "gcs_uri": "gs://healthy-hints-btekumudi-1103/uploads/c835fc87d1434ce792c1c792a165c290.png"
+          }
+        ]
+      ],
+      "responses": [
+        [
+          "upload_image",
+          {
+            "result": "gs://healthy-hints-btekumudi-1103/uploads/c835fc87d1434ce792c1c792a165c290.png"
+          }
+        ],
+        [
+          "read_ingredients",
+          {
+            "result": "LEMON-LIME SPORTS DRINK\nNutrition Facts\nServing Size 1 Cup (40g)\nCalories 160\nTotal Fat 6g 8%\nSodium 210mg 9%\nTotal Carbohydrate 24g 9%\nDietary Fiber 3g 11%\nTotal Sugars 7g\nProtein 4g\nINGREDIENTS: Water, Sugar, Citric Acid, Sodium Citrate,\nMonopotassium Phosphate, Natural Flavor."
+          }
+        ]
+      ],
+      "answer": "### Recognized Text\n\nThe following text was extracted from the image via OCR:\n\n```text\nLEMON-LIME SPORTS DRINK\nNutrition Facts\nServing Size 1 Cup (40g)\nCalories 160\nTotal Fat 6g 8%\nSodium 210mg 9%\nTotal Carbohydrate 24g 9%\nDietary Fiber 3g 11%\nTotal Sugars 7g\nProtein 4g\nINGREDIENTS: Water, Sugar, Citric Acid, Sodium Citrate, Monopotassium Phosphate, Natural Flavor.\n```\n\n---\n\n### Ingredient Analysis\n\n* **Water**: Serves as the liquid base for hydration.\n* **Sugar**: A simple carbohydrate added for sweetness and rapid energy. In sports drinks, sugars help quickly replenish glycogen stores during prolonged or intense physical activity. In sedentary contexts, however, unnecessary added sugars can contribute to excess calorie intake.\n* **Citric Acid**: An organic acid commonly added to provide a tart flavor profile and help regulate acidity (pH) and preserve freshness.\n* **Sodium Citrate**: A sodium salt of citric acid that acts as a buffer to control acidity and provides sodium\u2014an important electrolyte lost through sweat during exercise.\n* **Monopotassium Phosphate**: A soluble salt supplying potassium and phosphorus. Potassium is an essential electrolyte that aids in muscle function and maintaining proper fluid balance.\n* **Natural Flavor**: Flavoring compounds extracted or derived from natural plant or animal sources (such as fruits) to give the beverage its lemon-lime taste.\n\n---\n\n### General Context & Considerations\n\n* **Purpose**: Formulations with electrolytes (sodium, potassium) and carbohydrates (sugar) are primarily designed to assist with rehydration, fluid retention, and energy supply during prolonged or strenuous exercise.\n* **Dietary Context**: Whether these ingredients are appropriate depends on activity levels, overall diet, and individual health goals. For casual daily consumption without strenuous physical activity, the added sugars and sodium may not be necessary.\n* **Disclaimer**: This information is for educational purposes and is not personalized medical or nutritional advice. Individuals with specific dietary restrictions or health conditions (e.g., hypertension, diabetes, or renal issues) should consult a qualified healthcare professional.",
+      "error": null,
+      "latency_s": 37.56933015999948
+    },
+    "yogurt_low_contrast": {
+      "calls": [
+        [
+          "upload_image",
+          {
+            "image_path": "synthetic/yogurt_low_contrast.png"
+          }
+        ],
+        [
+          "read_ingredients",
+          {
+            "gcs_uri": "gs://healthy-hints-btekumudi-1103/uploads/4a8d80197d7544fb8ca4584ebe517baf.png"
+          }
+        ]
+      ],
+      "responses": [
+        [
+          "upload_image",
+          {
+            "result": "gs://healthy-hints-btekumudi-1103/uploads/4a8d80197d7544fb8ca4584ebe517baf.png"
+          }
+        ],
+        [
+          "read_ingredients",
+          {
+            "result": "STRAWBERRY YOGURT\nNutrition Facts\nServing Size 1 Cup (40g)\nCalories 160\nTotal Fat 6g 8%\nSodium 210mg 9%\nTotal Carbohydrate 24g 9%\nDietary Fiber 3g 11%\nTotal Sugars 7g\nProtein 4g\nINGREDIENTS: Cultured Milk, Strawberries, Cane Sugar, Pectin,\nLive Active Cultures.\nContains: Milk."
+          }
+        ]
+      ],
+      "answer": "### Recognized Text from Label\n\n```text\nSTRAWBERRY YOGURT\nNutrition Facts\nServing Size 1 Cup (40g)\nCalories 160\nTotal Fat 6g 8%\nSodium 210mg 9%\nTotal Carbohydrate 24g 9%\nDietary Fiber 3g 11%\nTotal Sugars 7g\nProtein 4g\nINGREDIENTS: Cultured Milk, Strawberries, Cane Sugar, Pectin,\nLive Active Cultures.\nContains: Milk.\n```\n\n---\n\n### Ingredient Analysis & Explanation\n\n1. **Cultured Milk**\n   * **What it is:** Milk that has been fermented using specific bacterial cultures.\n   * **Role & Context:** Forms the dairy base of the yogurt, providing protein, fat, calcium, and essential vitamins. Fermentation helps convert lactose into lactic acid, giving yogurt its characteristic tart taste and creamy texture.\n\n2. **Strawberries**\n   * **What it is:** Real fruit ingredient.\n   * **Role & Context:** Provides natural fruit flavor, color, and minor amounts of natural sugars and vitamins.\n\n3. **Cane Sugar**\n   * **What it is:** Added nutritive sweetener derived from sugar cane.\n   * **Role & Context:** Used to sweeten the product and balance the natural tartness of cultured milk and fruit. Intake of added sugars should be considered within the context of your overall daily diet and nutritional goals.\n\n4. **Pectin**\n   * **What it is:** A naturally derived soluble fiber commonly extracted from fruit peels (such as apples or citrus).\n   * **Role & Context:** Functions as a stabilizer and thickener to improve texture and prevent whey separation in fruit-added yogurts.\n\n5. **Live Active Cultures**\n   * **What it is:** Beneficial bacteria (such as *Lactobacillus* or *Streptococcus* species) used to ferment the milk.\n   * **Role & Context:** Essential for transforming milk into yogurt. In general dietary contexts, live cultures contribute to gut microbiome diversity, though individual digestive impacts depend on overall diet and personal health factors.\n\n---\n\n### Allergen Notice\n* **Contains: Milk** \u2014 Individuals with dairy allergies or severe lactose intolerance should take note.\n\n*Note: The recognized OCR text appears clear and complete. This information is intended for educational purposes regarding food labeling and does not constitute personalized medical or dietary advice.*",
+      "error": null,
+      "latency_s": 19.476130250000097
+    },
+    "spread_blurred": {
+      "calls": [],
+      "responses": [],
+      "answer": "",
+      "error": "ClientError: 402 RESOURCE_EXHAUSTED. {'error': {'code': 402, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}",
+      "latency_s": 0.8267351249996864
+    },
+    "nutrition_only": {
+      "calls": [],
+      "responses": [],
+      "answer": "",
+      "latency_s": 0.0,
+      "error": "Skipped: ClientError: 402 RESOURCE_EXHAUSTED. {'error': {'code': 402, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}"
+    },
+    "blank_image": {
+      "calls": [],
+      "responses": [],
+      "answer": "",
+      "latency_s": 0.0,
+      "error": "Skipped: ClientError: 402 RESOURCE_EXHAUSTED. {'error': {'code': 402, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}"
+    },
+    "real_label_a_cereal": {
+      "calls": [],
+      "responses": [],
+      "answer": "",
+      "latency_s": 0.0,
+      "error": "Skipped: ClientError: 402 RESOURCE_EXHAUSTED. {'error': {'code': 402, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}"
+    },
+    "real_label_b_chips": {
+      "calls": [],
+      "responses": [],
+      "answer": "",
+      "latency_s": 0.0,
+      "error": "Skipped: ClientError: 402 RESOURCE_EXHAUSTED. {'error': {'code': 402, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}"
+    }
+  }
+}

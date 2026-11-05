@@ -1,6 +1,6 @@
 # Healthy Hints: A Vision Agent with Google ADK
 [![tests](https://github.com/BinduRajyaLakshmiTekumudi/adk-vision-ocr-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/BinduRajyaLakshmiTekumudi/adk-vision-ocr-agent/actions/workflows/tests.yml)
-
+**Live demo:** https://adk-vision-ocr-agent-893861993283.us-west1.run.app
 An AI agent that reads a photo of a packaged-food label and explains the ingredients. It uses **Gemini** to plan and reason, **Cloud Storage** to archive the image, and the **Cloud Vision API** to read the label text (OCR). Built with Google's **Agent Development Kit (ADK)**.
 
 > Built as part of a graduate computer vision course (CS663, "Vision Agentic Computing"), starting from Google's [ADK multi-tool codelab](https://codelabs.developers.google.com/multi-tools-ai-agent-adk) and fixing a design flaw in its tool pipeline.
@@ -172,14 +172,12 @@ python -m pytest -v
 
 18 tests cover path and file-type validation, size limits, unique upload names, the URI allow-list, OCR edge cases, and the core fix: OCR runs on exactly the URI the upload returned.
 ## Limitations
-
-- OCR can misread characters and lose table layout.
+- OCR can misread characters and lose table layout; the agent may smooth these over in its answer.
+- The public demo is capped at one instance, so it can be slow under load.
 - Gives general information only, not personalized medical or nutrition advice.
-
 ## Tech stack
 
-Python · Google ADK · Gemini · Google Cloud Storage · Cloud Vision API · Cloud Shell
-
+Python · Google ADK · Gemini · Cloud Vision API · Cloud Storage · FastAPI · Docker · Cloud Run · Secret Manager · pytest · GitHub Actions
 ## Credits
 
 Based on Google's codelab [ADK: From Basics to Multi-Tool Agents](https://codelabs.developers.google.com/multi-tools-ai-agent-adk) (Apache 2.0). 

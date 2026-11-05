@@ -173,8 +173,6 @@ python -m pytest -v
 18 tests cover path and file-type validation, size limits, unique upload names, the URI allow-list, OCR edge cases, and the core fix: OCR runs on exactly the URI the upload returned.
 ## Limitations
 
-- Images must already be on the machine running ADK; there is no browser upload endpoint yet.
-- File validation checks extension and size, not actual file contents.
 - OCR can misread characters and lose table layout.
 - Gives general information only, not personalized medical or nutrition advice.
 

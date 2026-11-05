@@ -160,7 +160,16 @@ adk run healthy_hints
 # Or use the web UI with tool traces
 adk web --allow_origins="*"
 ```
+## Testing
 
+Unit tests mock Cloud Storage and Cloud Vision, so they run offline with no credentials:
+
+```bash
+pip install -r requirements-dev.txt
+python -m pytest -v
+```
+
+18 tests cover path and file-type validation, size limits, unique upload names, the URI allow-list, OCR edge cases, and the core fix: OCR runs on exactly the URI the upload returned.
 ## Limitations
 
 - Images must already be on the machine running ADK; there is no browser upload endpoint yet.

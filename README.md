@@ -50,9 +50,44 @@ Two different labels, two runs, traced in the ADK web UI:
 | label_a (cereal) | `.../uploads/7cc74ef...jpeg` | same URI | Full ingredient breakdown from OCR text |
 | label_b (chips) | `.../uploads/96488991...jpeg` | same URI | Correctly reported that the image had no ingredient list |
 
-<!-- Add your trace screenshots to docs/screenshots/ and link them here, e.g.
-![label_a trace](docs/screenshots/label_a_events.png)
--->
+### label_a (cereal)
+
+**1. Event trace:** text-only prompt, then `upload_image` → `read_ingredients` → answer
+
+![label_a event trace](docs/screenshots/a1_events.png)
+
+**2. `upload_image` returned this URI**
+
+![label_a upload response](docs/screenshots/a2_upload_response.png)
+
+**3. `read_ingredients` received the same URI**
+
+![label_a OCR call](docs/screenshots/a3_read_ingredients_uri.png)
+
+**4. Agent answer**
+
+![label_a answer part 1](docs/screenshots/a4_answer_1.png)
+![label_a answer part 2](docs/screenshots/a4_answer_2.png)
+![label_a answer part 3](docs/screenshots/a4_answer_3.png)
+
+### label_b (chips)
+
+**1. Event trace**
+
+![label_b event trace](docs/screenshots/b1_events.png)
+
+**2. `upload_image` returned a different URI**
+
+![label_b upload response](docs/screenshots/b2_upload_response.png)
+
+**3. `read_ingredients` received the same URI**
+
+![label_b OCR call](docs/screenshots/b3_read_ingredients_uri.png)
+
+**4. Agent answer:** reports that the image has no ingredient list
+
+![label_b answer part 1](docs/screenshots/b4_answer_1.png)
+![label_b answer part 2](docs/screenshots/b4_answer_2.png)
 
 ### What I observed
 

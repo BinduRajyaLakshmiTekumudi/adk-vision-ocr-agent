@@ -1,0 +1,13 @@
+# Never bake secrets or local data into the image
+.env
+**/.env
+healthy_hints/images/
+.venv/
+__pycache__/
+*.pyc
+.git/
+.github/
+tests/
+docs/
+scripts/
+.pytest_cache/

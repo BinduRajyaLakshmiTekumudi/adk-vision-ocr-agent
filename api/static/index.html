@@ -25,7 +25,12 @@
     #status.err { color: var(--err); }
     #result { display: none; margin-top: 20px; }
     #result code { font-size: .85rem; word-break: break-all; color: var(--muted); }
-    #analysis { white-space: pre-wrap; margin-top: 12px; }
+    #analysis { margin-top: 12px; }
+    #analysis h1, #analysis h2, #analysis h3 { font-size: 1.1rem; margin: 20px 0 8px; }
+    #analysis ul { padding-left: 22px; }
+    #analysis li { margin: 4px 0; }
+    #analysis blockquote { margin: 8px 0; padding: 4px 12px; border-left: 3px solid var(--line); color: var(--muted); }
+    #analysis hr { border: 0; border-top: 1px solid var(--line); margin: 20px 0; }
   </style>
 </head>
 <body>
@@ -50,6 +55,46 @@
 </main>
 
 <script>
+  // Minimal markdown renderer for the agent's replies: headings, bold, italics,
+  // bullet lists (one nesting level), quotes, rules and paragraphs.
+  // All text is HTML-escaped first, so model output can never inject markup.
+  function escapeHtml(s) {
+    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function inline(s) {
+    return escapeHtml(s)
+      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/(^|[^*])\*([^*\s][^*]*)\*/g, "$1<em>$2</em>");
+  }
+  function renderMarkdown(md) {
+    const out = [];
+    let listDepth = 0, para = [];
+    const flushPara = () => { if (para.length) { out.push("<p>" + para.map(inline).join("<br>") + "</p>"); para = []; } };
+    const closeLists = (to) => { while (listDepth > to) { out.push("</ul>"); listDepth--; } };
+    for (const raw of md.replace(/\r/g, "").split("\n")) {
+      const line = raw.replace(/\s+$/, "");
+      const bullet = line.match(/^(\s*)[*-]\s+(.*)$/);
+      const heading = line.match(/^#{1,6}\s+(.*)$/);
+      if (!line.trim()) { flushPara(); closeLists(0); continue; }
+      if (/^\s*(-{3,}|\*{3,})\s*$/.test(line)) { flushPara(); closeLists(0); out.push("<hr>"); continue; }
+      if (heading) { flushPara(); closeLists(0); out.push("<h3>" + inline(heading[1]) + "</h3>"); continue; }
+      if (bullet) {
+        flushPara();
+        const depth = bullet[1].length >= 2 ? 2 : 1;
+        while (listDepth < depth) { out.push("<ul>"); listDepth++; }
+        closeLists(depth);
+        out.push("<li>" + inline(bullet[2]) + "</li>");
+        continue;
+      }
+      if (line.startsWith(">")) { flushPara(); closeLists(0); out.push("<blockquote>" + inline(line.replace(/^>\s?/, "")) + "</blockquote>"); continue; }
+      closeLists(0);
+      para.push(line.trim());
+    }
+    flushPara(); closeLists(0);
+    return out.join("\n");
+  }
+
   const fileInput = document.getElementById("file");
   const preview = document.getElementById("preview");
   const submit = document.getElementById("submit");
@@ -78,7 +123,7 @@
       const data = await res.json();
       if (!res.ok) throw new Error(data.detail || "Request failed");
       document.getElementById("uri").textContent = data.gcs_uri;
-      document.getElementById("analysis").textContent = data.analysis;
+      document.getElementById("analysis").innerHTML = renderMarkdown(data.analysis);
       document.getElementById("result").style.display = "block";
       statusBox.textContent = "";
     } catch (err) {
